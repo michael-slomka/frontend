@@ -39,6 +39,15 @@
             :feedback-text="$t('message.required_component_version')"
           />
           <b-input-group-form-input
+            id="component-author-input"
+            input-group-size="mb-3"
+            type="text"
+            v-model="component.author"
+            required="false"
+            :label="$t('message.component_author')"
+            :tooltip="this.$t('message.component_author_desc')"
+          />
+          <b-input-group-form-input
             id="component-group-input"
             input-group-size="mb-3"
             type="text"
@@ -287,6 +296,7 @@ export default {
         .put(url, {
           name: this.component.name,
           version: this.component.version,
+          author: this.component.author,
           group: this.component.group,
           description: this.component.description,
           license: this.selectedLicense,
@@ -319,6 +329,7 @@ export default {
       this.component = {
         name: null,
         version: null,
+        author: null,
         group: null,
         description: null,
         license: null,

@@ -113,6 +113,16 @@
               deselectLabel=""
             ></multiselect>
           </div>
+          <b-input-group-form-input
+            id="project-author-input"
+            input-group-size="mb-3"
+            type="text"
+            v-model="project.author"
+            required="false"
+            :label="$t('message.project_author')"
+            :tooltip="this.$t('message.project_author_desc')"
+            :readonly="this.isNotPermitted(PERMISSIONS.PORTFOLIO_MANAGEMENT)"
+          />
           <b-form-group
             id="project-description-form-group"
             :label="this.$t('message.description')"
